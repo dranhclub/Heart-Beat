@@ -6,20 +6,13 @@ from colorsys import hsv_to_rgb
 pygame.init()
 
 # Set up the drawing window
-W, H = 800,800
+W, H = 800, 800
 screen = pygame.display.set_mode((H, W))
 pygame.display.set_caption("Heart beat")
 
 def draw_circle(screen, x, y, r, color):
     pygame.gfxdraw.filled_circle(screen, x, y, r, color)
 
-def x_func(t, scale):
-    o = 16 * np.sin(t) ** 3
-    return scale * o
-
-def y_func(t, a, b, c, d, scale):
-    o = a * np.cos(t) + b * np.cos(2*t) + c * np.cos(3*t) + d * np.cos(4*t)
-    return scale * o
 
 def rand(a0, a1):
     return np.random.rand() * (a1 - a0) + a0
@@ -139,8 +132,7 @@ while running:
     # Fill the background with black
     screen.fill((0, 0, 0))
 
-    # draw
-
+    # Draw
     index = indices[frame % len(indices)]
     for p in persistent_particles:
         p.draw(screen, index)
